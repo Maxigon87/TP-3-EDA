@@ -1,40 +1,48 @@
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
-struct personas
+struct Persona
 {
-    char nombre[20];
-    int edad[2];
-    char sexo[10];
-    double telefono[10];
-} personas[5];
+    char nombre[15];
+    int edad;
+    char sexo[15];
+    int telefono;
+} pa[2];
 
-main()
+// void recibo(struct arreglo[]);
+void mostrarDatos(Persona);
+
+int main()
 {
 
-    int may = 30;
-    cout << "Ingrese los datos de las 5 personas." << endl;
-
-    for (int i = 0; i < 4; i++)
+    for (int i = 1; i < 3; i++)
     {
-        cout << "Ingrese el nombre: ";
-        cin.getline(personas[i].nombre,20,'\n');
+        fflush(stdin);
+        cout << "Complete los datos" << endl;
+        cout << "**" << endl;
+        cout << "Digite su nombre: " << endl;
+        cin.getline(pa[i].nombre, 15, '\n');
+        cout << "Ingresa edad: " << endl;
+        cin >> pa[i].edad;
+        fflush(stdin);
+        cout << "Ingrese sexo: " << endl;
+        cin.getline(pa[i].sexo, 15, '\n');
+        cout << "Ingrese telefono: " << endl;
+        cin >> pa[i].telefono;
+    }
 
-        cout << "Ingrese la edad: ";
-        cin.getline(personas[i].edad,2,'\n');
+    mostrarDatos(pa[2]);
 
-        cout << "Ingrese el sexo: ";
-        cin.getline(personas[i].sexo,10,'\n');
+    return 0;
+}
 
-        cout << "Ingrese el telefono: ";
-        cin.getline(personas[i].telefono,10,'\n');
-
-        if (personas[i].edad > may)
-        {
-            may = personas[i].edad;
-            cout << personas[i].nombre << " es mayor de 30."<<endl;
-        }
-        
+void mostrarDatos(Persona p)
+{
+    for (int i = 0; i < 2; i++)
+    {
+        if (pa[i].edad > 30)
+            cout << pa[i].nombre << " es mayor con sus " << pa[i].edad << ", de sexo " << pa[i].sexo << " y telefono " << pa[i].telefono << endl;
     }
 }
