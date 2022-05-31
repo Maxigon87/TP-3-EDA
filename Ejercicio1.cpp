@@ -3,46 +3,48 @@
 
 using namespace std;
 
-struct Persona
+struct Personas
 {
+
     char nombre[15];
     int edad;
     char sexo[15];
     int telefono;
-} pa[2];
+} pers[3];
 
-// void recibo(struct arreglo[]);
-void mostrarDatos(Persona);
+void recibo(Personas p[], int n);
 
 int main()
 {
 
-    for (int i = 1; i < 3; i++)
+    for (int i = 0; i < 3; i++)
     {
-        fflush(stdin);
+
         cout << "Complete los datos" << endl;
-        cout << "**" << endl;
+
+        fflush(stdin);
         cout << "Digite su nombre: " << endl;
-        cin.getline(pa[i].nombre, 15, '\n');
+        cin.getline(pers[i].nombre, 15);
         cout << "Ingresa edad: " << endl;
-        cin >> pa[i].edad;
+        cin >> pers[i].edad;
         fflush(stdin);
         cout << "Ingrese sexo: " << endl;
-        cin.getline(pa[i].sexo, 15, '\n');
+        cin.getline(pers[i].sexo, 15);
         cout << "Ingrese telefono: " << endl;
-        cin >> pa[i].telefono;
+        cin >> pers[i].telefono;
     }
 
-    mostrarDatos(pa[2]);
+    recibo(pers, 3);
 
     return 0;
 }
 
-void mostrarDatos(Persona p)
+void recibo(Personas p[], int n)
 {
-    for (int i = 0; i < 2; i++)
+
+    for (int i = 0; i < 3; i++)
     {
-        if (pa[i].edad > 30)
-            cout << pa[i].nombre << " es mayor con sus " << pa[i].edad << ", de sexo " << pa[i].sexo << " y telefono " << pa[i].telefono << endl;
+        if (p[i].edad > 30)
+            cout << p[i].nombre << " " << p[i].edad << " " << p[i].sexo << " " << p[i].telefono << endl;
     }
 }
